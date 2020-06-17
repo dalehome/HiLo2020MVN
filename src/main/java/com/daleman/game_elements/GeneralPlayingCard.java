@@ -98,10 +98,7 @@ public class GeneralPlayingCard implements I_PlayingCard {
         name = name.toUpperCase();
         this.name = name;
         graphic = new ImageIcon("./graphics/" + name + ".gif"); // TODO - need
-        // to use proper
-        // method for
-        // jar inclusion
-        // here
+        // ToDo use proper method for jar inclusion here
 
         char last = name.charAt(name.length() - 1);
         suit = whatSuit(last);
