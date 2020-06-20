@@ -2,6 +2,8 @@ package com.daleman.highlow.gameobjects;
 
 import com.daleman.game_elements.GeneralPlayingCard;
 
+import java.util.Objects;
+
 /**
  * A class which represents a specialised playing card for HiLowJack.
  * <p>
@@ -69,6 +71,26 @@ public class HighLowCard extends GeneralPlayingCard {
         String str = super.toString();
         str += " + [ Score = " + score + " ]";
         return str;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+
+        if (this == o) return true;
+        if (!(o instanceof HighLowCard)) return false;
+        if (o == null) return false;
+        HighLowCard that = (HighLowCard) o;
+        return super.getValue() == that.getValue()&&
+                score == that.score &&
+                Objects.equals(super.getName(), that.getName()) &&
+                Objects.equals(super.getSuit(), that.getSuit()) &&
+                Objects.equals(super.getFace(), that.getFace()) &&
+                Objects.equals(super.getGraphic(), that.getGraphic());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), score);
     }
 
     /*

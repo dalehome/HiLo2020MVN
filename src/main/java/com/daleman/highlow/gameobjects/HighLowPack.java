@@ -16,9 +16,10 @@ public class HighLowPack extends DefaultPack {
 
     public HighLowPack() {
         super();
-        packList = new ArrayList<HighLowCard>();
-        packList = getSortedPack();
+        super.packList = new ArrayList<HighLowCard>();
+        packList = this.getSortedPack();
     }
+
 
     /**
      * This method refreshes the internal pack holding list, and builds
@@ -29,13 +30,13 @@ public class HighLowPack extends DefaultPack {
      */
     @Override
     public List<? extends GeneralPlayingCard> getSortedPack() {
-
+        //packList.clear(); // A fresh pack
         List<HighLowCard> packL = new ArrayList<>();
         for (String s : cardNameArray) {
             HighLowCard c = new HighLowCard(s);
             packL.add(c);
         }
-
+        super.packList = packL;
         sortPack();
         return packL;
     }

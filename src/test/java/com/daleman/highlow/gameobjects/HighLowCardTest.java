@@ -1,9 +1,8 @@
 package com.daleman.highlow.gameobjects;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
+
+import static org.junit.Assert.*;
 
 /**
  * A Unit test to check out that HighLowCard objects return the correct scores.
@@ -15,7 +14,7 @@ import org.junit.Test;
  */
 public class HighLowCardTest {
 
-    HighLowCard c1, c2, c3, c4, c5, c6;
+    HighLowCard c1, c2, c3, c4, c5, c6, c7;
 
     @Before
     public void setUp() {
@@ -25,17 +24,29 @@ public class HighLowCardTest {
         c4 = new HighLowCard("KD");
         c5 = new HighLowCard("AH");
         c6 = new HighLowCard("4S");
+        c7 = new HighLowCard("QC");
     }
 
     @Test
     public void testScores() {
 
-        Assert.assertEquals(c1.getScore(), 10);
-        Assert.assertEquals(c2.getScore(), 1);
-        Assert.assertEquals(c3.getScore(), 2);
-        Assert.assertEquals(c4.getScore(), 3);
-        Assert.assertEquals(c5.getScore(), 4);
-        Assert.assertEquals(c6.getScore(), 0);
+        assertEquals(10, c1.getScore());
+        assertEquals(1, c2.getScore());
+        assertEquals(2, c3.getScore());
+        assertEquals(3, c4.getScore());
+        assertEquals(4, c5.getScore());
+        assertEquals(0, c6.getScore());
+        assertEquals(2, c7.getScore());
+    }
+    @Test
+    @Ignore
+    public void testEquals() {
+        assertTrue(c1.equals(c1));
+        assertNotEquals(c3,c7);
+        assertNotEquals(c3,c4);
+        HighLowCard hlc1 = new HighLowCard("AH");
+        HighLowCard hlc2 = new HighLowCard("AH");
+        assertEquals(hlc1,hlc2);
     }
 
     @After

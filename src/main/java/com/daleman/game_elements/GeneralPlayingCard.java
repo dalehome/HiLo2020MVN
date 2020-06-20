@@ -2,6 +2,9 @@ package com.daleman.game_elements;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import java.util.Objects;
+
+//import org.slf4j.Logger;
 
 /**
  * A class which represents a general purpose playing card. Fields stored
@@ -95,6 +98,8 @@ public class GeneralPlayingCard implements I_PlayingCard {
      *
      */
     public GeneralPlayingCard(String name) {
+        //Logger logger;
+
         name = name.toUpperCase();
         this.name = name;
         graphic = new ImageIcon("./graphics/" + name + ".gif"); // TODO - need
@@ -194,6 +199,7 @@ public class GeneralPlayingCard implements I_PlayingCard {
         return sortMode;
     }
 
+
     /**
      * Provides (natural) sort order depending on mode.
      */
@@ -232,6 +238,24 @@ public class GeneralPlayingCard implements I_PlayingCard {
     public String toString() {
         return ("[ Name: " + name + ", Value: " + value + ", Face: " + face + ", Suit: " + suit
                 + ", Graphic: " + graphic +" ]");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof GeneralPlayingCard)) return false;
+        GeneralPlayingCard that = (GeneralPlayingCard) o;
+        return value == that.value &&
+                score == that.score &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(suit, that.suit) &&
+                Objects.equals(face, that.face) &&
+                Objects.equals(graphic, that.graphic);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, suit, value, face, graphic, score);
     }
 
     /*

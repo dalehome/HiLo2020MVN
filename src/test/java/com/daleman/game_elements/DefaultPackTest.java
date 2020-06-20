@@ -4,11 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 
 /**
  * Test to check out the behaviour of A default pack
@@ -50,8 +46,8 @@ public class DefaultPackTest {
     @Test
     public void testReversePack() {
         pack.reversePack();
-        assertEquals("KC", pack.cutPack(1).getName());
-        assertEquals("QC", pack.cutPack(2).getName());
+        assertEquals("AS", pack.cutPack(1).getName());
+        assertEquals("KS", pack.cutPack(2).getName());
         //fail("Not yet implemented");
     }
 
@@ -134,8 +130,15 @@ public class DefaultPackTest {
         List<GeneralPlayingCard> list = (List<GeneralPlayingCard>) ((DefaultPack) pack).getSortedPack();
         I_PlayingCard c1 = list.get(0);
         I_PlayingCard c2 = list.get(10);
+        assertEquals("2C", c1.getName());
+        assertEquals("QC", c2.getName());
+
+        //Bonus reverse test
+        pack.reversePack();
+        c1 = list.get(0);
+        c2 = list.get(10);
         assertEquals("AS", c1.getName());
-        assertEquals("JS", c2.getName());
+        assertEquals("4S", c2.getName());
 
         //fail("Not yet implemented");
     }
