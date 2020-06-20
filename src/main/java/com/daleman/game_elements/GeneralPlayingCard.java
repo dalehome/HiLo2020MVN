@@ -4,7 +4,8 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import java.util.Objects;
 
-//import org.slf4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * A class which represents a general purpose playing card. Fields stored
@@ -29,6 +30,9 @@ import java.util.Objects;
 //          compared - also note that earlier I was insdventently using "type" rather than
 //          instance encapsulation - c.sut, rather than c.getSuit()
 public class GeneralPlayingCard implements I_PlayingCard {
+
+    /** A logger facade as per slf4j */
+    Logger logger = LoggerFactory.getLogger(GeneralPlayingCard.class);
 
     /** Sort mode (Default LOGICAL) */
     private static SortMode sortMode = SortMode.SORT_LOGICAL_ORDER;
@@ -98,8 +102,7 @@ public class GeneralPlayingCard implements I_PlayingCard {
      *
      */
     public GeneralPlayingCard(String name) {
-        //Logger logger;
-
+        logger.debug("Create a card based on supplied name, get its graphics and detail state: {}", name);
         name = name.toUpperCase();
         this.name = name;
         graphic = new ImageIcon("./graphics/" + name + ".gif"); // TODO - need
