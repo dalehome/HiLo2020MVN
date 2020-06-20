@@ -39,14 +39,14 @@ public class HighLowCardTest {
         assertEquals(2, c7.getScore());
     }
     @Test
-    @Ignore
     public void testEquals() {
         assertTrue(c1.equals(c1));
         assertNotEquals(c3,c7);
         assertNotEquals(c3,c4);
         HighLowCard hlc1 = new HighLowCard("AH");
         HighLowCard hlc2 = new HighLowCard("AH");
-        assertEquals(hlc1,hlc2);
+        //assertEquals(hlc1,hlc2);
+        assertEquals(hlc1, hlc2);
     }
 
     @After

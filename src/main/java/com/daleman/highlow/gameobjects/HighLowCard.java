@@ -2,6 +2,7 @@ package com.daleman.highlow.gameobjects;
 
 import com.daleman.game_elements.GeneralPlayingCard;
 
+import javax.swing.*;
 import java.util.Objects;
 
 /**
@@ -80,12 +81,13 @@ public class HighLowCard extends GeneralPlayingCard {
         if (!(o instanceof HighLowCard)) return false;
         if (o == null) return false;
         HighLowCard that = (HighLowCard) o;
-        return super.getValue() == that.getValue()&&
+        return super.getValue() == that.getValue() &&
                 score == that.score &&
                 Objects.equals(super.getName(), that.getName()) &&
                 Objects.equals(super.getSuit(), that.getSuit()) &&
-                Objects.equals(super.getFace(), that.getFace()) &&
-                Objects.equals(super.getGraphic(), that.getGraphic());
+                Objects.equals(super.getFace(), that.getFace()) ;
+
+
     }
 
     @Override
