@@ -59,6 +59,6 @@ public class HighLowPlayer implements I_Player {
 
     @Override
     public String toString() {
-        return "[ Player: ]" + getName();
+        return "[ Player: " + getName() + " ]";
     }
 }

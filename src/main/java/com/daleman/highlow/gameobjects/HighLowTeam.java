@@ -22,7 +22,7 @@ public class HighLowTeam implements I_HighLowTeam {
 
     public I_Player[] players = new HighLowPlayer[2];
 
-    public int score;
+    public int score = 0;
 
     /**
      * Constructor
@@ -91,11 +91,10 @@ public class HighLowTeam implements I_HighLowTeam {
     @Override
     public void setPlayer(int playerNum, I_Player player) {
         logger.debug("Entering setPlayer(#, player) method");
-        switch (playerNum) {
-            case 1:
-                players[1] = player;
-            default:
-                players[0] = player;
+        if (playerNum == 1) {
+            players[1] = player;
+        } else {
+            players[0] = player;
         }
     }
 
