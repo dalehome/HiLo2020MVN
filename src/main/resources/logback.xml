@@ -2,15 +2,26 @@
 <configuration debug="true">
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg %n</pattern>
+            <pattern>#LOGBACK# %d{HH:mm:ss.SSS} [%thread] %-5level %logger{56} - %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>SimpleHighLow.log</file>
+
+        <encoder>
+            <pattern>#FILELOG# > %date %level [%thread] %logger{30} [%file:%line] ~ %msg%n</pattern>
         </encoder>
     </appender>
 
         <logger name="com.daleman.game_elements" level="info" />
         <logger name="com.daleman.highlow" level="debug" />
+        <logger name="com.daleman.highlow.game" level="info" />
+        <logger name="com.daleman.highlow.gameobjects" level="info" />
 
-        <root level="INFO">
+        <root level="ERROR">
             <appender-ref ref="STDOUT" />
+            <appender-ref ref="FILE" />
         </root>
 </configuration>
 
